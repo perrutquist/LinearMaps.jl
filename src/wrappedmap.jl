@@ -18,6 +18,7 @@ function WrappedMap{T}(lmap::Union{AbstractMatrix, LinearMap};
 end
 
 # properties
+Base.size(A::WrappedMap, n) = n in (1, 2) ? size(A.lmap, n) : error("LinearMap objects have only 2 dimensions")
 Base.size(A::WrappedMap) = size(A.lmap)
 LinearAlgebra.issymmetric(A::WrappedMap) = A._issymmetric
 LinearAlgebra.ishermitian(A::WrappedMap) = A._ishermitian
