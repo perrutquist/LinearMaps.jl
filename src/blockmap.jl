@@ -47,7 +47,6 @@ function rowcolranges(maps, rows)::Tuple{Vector{UnitRange{Int}},Vector{UnitRange
     return rowranges, colranges
 end
 
-Base.size(A::BlockMap, n) = n==1 ? A.rowranges[end][end] : n==2 ? A.colranges[end][end] : error("LinearMap objects have only 2 dimensions")
 Base.size(A::BlockMap) = (A.rowranges[end][end], A.colranges[end][end])
 
 ############
